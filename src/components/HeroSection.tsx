@@ -81,7 +81,7 @@ export function HeroSection() {
                   <img
                     src='/J7.png'
                     
-                    alt='Jasmeet Singh - AI Solutions Developer'
+                    alt='Jasmeet Singh - Full Stack AI Engineer'
                     className="profile-image-3d"
                   />
 
@@ -135,7 +135,7 @@ export function HeroSection() {
               className="mb-8"
             >
               <h2 className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light mb-3">
-                Full Stack Developer & AI Engineer
+                Full Stack AI Engineer
               </h2>
               <p className="text-primary font-medium">
                 N8N • LangChain • RAG • Full Stack Development

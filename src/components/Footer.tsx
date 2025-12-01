@@ -60,7 +60,7 @@ export function Footer() {
                   <span className="gradient-text">Jasmeet Singh</span>
                 </h3>
                 <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-md">
-                  Software Developer specializing in N8N, LangChain, RAG, and intelligent automation.
+                  Full Stack AI Engineer specializing in N8N, LangChain, RAG, and Full stack development.
                   Transforming business challenges into automated, AI-powered solutions.
                 </p>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">

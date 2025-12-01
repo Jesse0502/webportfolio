@@ -7,7 +7,7 @@ import { MouseFollower } from "@/components/MouseFollower";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Jasmeet Singh - AI Solutions Developer Portfolio",
+  title: "Jasmeet Singh - Full Stack AI Engineer Portfolio",
   description: "Portfolio of Jasmeet Singh, showcasing AI automation solutions, N8N workflows, LangChain integrations, and full-stack development projects.",
 };
 

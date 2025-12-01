@@ -44,24 +44,66 @@ export function HeroSection() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/15 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: '2s' }} />
       </div>
 
-      {/* Floating Tech Objects - Subtle & Blue */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="floating-tech floating-code-1">{"{}"}</div>
-        <div className="floating-tech floating-circuit-1">⚡</div>
-        <div className="floating-tech floating-data-1">💾</div>
-        <div className="floating-tech floating-ai-1">🤖</div>
-        <div className="floating-tech floating-devops-1">🐳</div>
-        <div className="floating-tech floating-cloud-1">☁️</div>
-      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-          {/* Text Content */}
+          {/* Enhanced Profile Image - First on mobile */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="relative flex justify-center order-first lg:order-last"
+            onMouseMove={handleMouseMove}
+            onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
+          >
+            <div className="relative">
+              {/* Outer Glow Rings */}
+              <div className="absolute inset-0 scale-110">
+                <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse-slow" />
+                <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl animate-spin-slow opacity-60" />
+              </div>
+
+              {/* Middle Ring */}
+              <div className="absolute inset-4 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full blur-xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
+
+              {/* Profile Container */}
+              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 " />
+
+                {/* 3D Profile Image */}
+                <div
+                  className="profile-3d-container"
+                  // style={{
+                  //   transform: `perspective(1200px) rotateY(${mousePosition.x * 12}deg) rotateX(${-mousePosition.y * 12}deg)`,
+                  // }}
+                >
+                  <img
+                    src='/J7.png'
+                    
+                    alt='Jasmeet Singh - AI Solutions Developer'
+                    className="profile-image-3d"
+                  />
+
+                  {/* Inner Glow */}
+                  {/* <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm animate-pulse-slow opacity-50" style={{ animationDelay: '3s' }} /> */}
+                </div>
+
+                {/* Decorative Elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
+                  {/* <Sparkles className="w-4 h-4 text-primary-foreground" /> */}
+                </div>
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary/80 rounded-full animate-pulse" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Text Content - Second on mobile */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left order-last lg:order-first"
           >
             {/* Badge */}
             <motion.div
@@ -93,7 +135,7 @@ export function HeroSection() {
               className="mb-8"
             >
               <h2 className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light mb-3">
-                AI Solutions Developer
+                Full Stack Developer & AI Engineer
               </h2>
               <p className="text-primary font-medium">
                 N8N • LangChain • RAG • Full Stack Development
@@ -146,57 +188,6 @@ export function HeroSection() {
               </Button>
             </motion.div>
           </motion.div>
-
-          {/* Enhanced Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="relative flex justify-center"
-            onMouseMove={handleMouseMove}
-            onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
-          >
-            <div className="relative">
-              {/* Outer Glow Rings */}
-              <div className="absolute inset-0 scale-110">
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse-slow" />
-                <div className="absolute inset-0 bg-primary/10 rounded-full blur-xl animate-spin-slow opacity-60" />
-              </div>
-
-              {/* Middle Ring */}
-              <div className="absolute inset-4 bg-gradient-to-br from-primary/30 to-primary/10 rounded-full blur-xl animate-pulse-slow" style={{ animationDelay: '1s' }} />
-
-              {/* Profile Container */}
-              <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 " />
-
-                {/* 3D Profile Image */}
-                <div
-                  className="profile-3d-container"
-                  // style={{
-                  //   transform: `perspective(1200px) rotateY(${mousePosition.x * 12}deg) rotateX(${-mousePosition.y * 12}deg)`,
-                  // }}
-                >
-                  <img
-                    src='/J5.png'
-                    
-                    alt='Jasmeet Singh - AI Solutions Developer'
-                    className="profile-image-3d"
-                  />
-
-                  {/* Inner Glow */}
-                  {/* <div className="absolute inset-0 bg-primary/10 rounded-full blur-sm animate-pulse-slow opacity-50" style={{ animationDelay: '3s' }} /> */}
-                </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-lg">
-                  {/* <Sparkles className="w-4 h-4 text-primary-foreground" /> */}
-                </div>
-                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary/80 rounded-full animate-pulse" />
-              </div>
-            </div>
-          </motion.div>
         </div>
 
         {/* Scroll Indicator */}
@@ -204,7 +195,7 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2"
         >
           <button
             onClick={handleScrollToProjects}

@@ -8,28 +8,21 @@ const socialLinks = [
   {
     name: "GitHub",
     icon: Github,
-    href: "https://github.com/jasmeetsingh",
+    href: "https://github.com/Jesse0502",
     label: "Visit GitHub profile",
     color: "hover:text-gray-300",
   },
   {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://linkedin.com/in/jasmeetsingh",
+    href: "https://www.linkedin.com/in/jasmeet-singh-3b5b91185/",
     label: "Visit LinkedIn profile",
     color: "hover:text-blue-400",
   },
   {
-    name: "Twitter",
-    icon: Twitter,
-    href: "https://twitter.com/jasmeetsingh",
-    label: "Visit Twitter profile",
-    color: "hover:text-blue-300",
-  },
-  {
     name: "Email",
     icon: Mail,
-    href: "mailto:hello@jasmeetsingh.dev",
+    href: "mailto:jasmeetsingh0502@gmail.com",
     label: "Send email",
     color: "hover:text-primary",
   },
@@ -67,7 +60,7 @@ export function Footer() {
                   <span className="gradient-text">Jasmeet Singh</span>
                 </h3>
                 <p className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-md">
-                  AI Solutions Developer specializing in N8N, LangChain, RAG, and intelligent automation.
+                  Software Developer specializing in N8N, LangChain, RAG, and intelligent automation.
                   Transforming business challenges into automated, AI-powered solutions.
                 </p>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
@@ -77,20 +70,7 @@ export function Footer() {
               </div>
 
               {/* Newsletter Signup - Optional */}
-              <div className="space-y-3">
-                <h4 className="font-semibold text-sm">Stay Updated</h4>
-                <p className="text-muted-foreground text-xs">Get notified about new projects and AI insights</p>
-                <div className="flex gap-2">
-                  <input
-                    type="email"
-                    placeholder="your.email@example.com"
-                    className="flex-1 px-3 py-2 bg-background/50 border border-primary/20 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary/50 focus:border-primary/50"
-                  />
-                  <Button size="sm" className="px-4">
-                    Subscribe
-                  </Button>
-                </div>
-              </div>
+       
             </div>
 
             {/* Navigation Links */}
@@ -157,10 +137,7 @@ export function Footer() {
               <p className="text-muted-foreground text-xs md:text-sm">
                 © {currentYear} Jasmeet Singh. All rights reserved.
               </p>
-              <p className="text-muted-foreground text-xs md:text-sm flex items-center gap-1">
-                Made with <Heart className="h-3 w-3 md:h-4 md:w-4 text-primary fill-primary" />{" "}
-                using Next.js & AI
-              </p>
+             
             </div>
           </div>
         </div>

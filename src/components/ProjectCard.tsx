@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { ProjectPlaceholder } from "@/components/ProjectPlaceholder";
 import { ArrowRight } from "lucide-react";
 import type { Project } from "@/types/project";
+import { useRouter } from "next/navigation";
 
 interface ProjectCardProps {
   project: Project;
@@ -16,6 +17,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
+  const router = useRouter();
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -23,14 +25,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true, margin: "-50px" }}
       transition={{ delay: index * 0.1, duration: 0.4 }}
     >
-      <Card className="h-full flex flex-col overflow-hidden glass-strong hover:border-primary/50 transition-all duration-300 group">
+      <Card onClick={() => router.push(`/projects/${project.id}`)} className="h-full flex flex-col overflow-hidden glass-strong hover:border-primary/50 transition-all duration-300 group cursor-pointer">
         <CardHeader className="p-0">
           <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
             {project.usePlaceholder ? (
               <ProjectPlaceholder title={project.title} className="h-full w-full" />
             ) : (
               <div className="h-full w-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                <span className="text-muted-foreground">Add project image</span>
+                <img src={project.thumbnail} alt={project.title} className="w-full h-full object-cover" />
               </div>
             )}
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-60" />

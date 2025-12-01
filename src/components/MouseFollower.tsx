@@ -103,29 +103,39 @@ export function MouseFollower() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             {/* Create explosion particles */}
-            {Array.from({ length: 12 }, (_, i) => (
-              <motion.div
-                key={i}
-                className="mouse-explosion-particle"
-                initial={{
-                  x: 0,
-                  y: 0,
-                  scale: 0,
-                  opacity: 1,
-                }}
-                animate={{
-                  x: Math.cos((i / 12) * Math.PI * 2) * 80,
-                  y: Math.sin((i / 12) * Math.PI * 2) * 80,
-                  scale: [0, 1, 0.5],
-                  opacity: [1, 1, 0],
-                }}
-                transition={{
-                  duration: 0.8,
-                  ease: "easeOut",
-                  delay: i * 0.02,
-                }}
-              />
-            ))}
+            {Array.from({ length: 20 }, (_, i) => {
+              // Add randomness to angles and distances for more natural explosion
+              const baseAngle = (i / 20) * Math.PI * 2;
+              const angleVariation = (Math.random() - 0.5) * 0.8; // Random angle variation
+              const angle = baseAngle + angleVariation;
+
+              const distance = 60 + Math.random() * 40; // Random distance between 60-100px
+              const delay = Math.random() * 0.1; // Random delay up to 100ms
+
+              return (
+                <motion.div
+                  key={i}
+                  className="mouse-explosion-particle"
+                  initial={{
+                    x: 0,
+                    y: 0,
+                    scale: 0,
+                    opacity: 1,
+                  }}
+                  animate={{
+                    x: Math.cos(angle) * distance,
+                    y: Math.sin(angle) * distance,
+                    scale: [0, 1.2, 0.3],
+                    opacity: [1, 0.8, 0],
+                  }}
+                  transition={{
+                    duration: 0.6 + Math.random() * 0.3, // Random duration 0.6-0.9s
+                    ease: "easeOut",
+                    delay: delay,
+                  }}
+                />
+              );
+            })}
           </motion.div>
         ))}
       </AnimatePresence>

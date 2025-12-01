@@ -8,16 +8,41 @@ import { Mail, Calendar, MessageSquare, Sparkles, Send, Clock, CheckCircle } fro
 
 export function ContactSection() {
   const [formState, setFormState] = React.useState<'idle' | 'sending' | 'sent'>('idle');
+  const [formSendMessage, setFormSendMessage] = React.useState<{message: string, state: 'success' | 'error' | 'idle'}>({message: "", state: 'idle'});
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    try{
     setFormState('sending');
+    // console.log(e.target);
+    const data = {
+      // @ts-ignore
+      name: e.target.name.value,
+      // @ts-ignore
+      email: e.target.email.value,
+      // @ts-ignore
+      subject: e.target.subject.value,
+      // @ts-ignore
+      message: e.target.message.value,
+    };
 
-    // Simulate form submission
-    setTimeout(() => {
+    // console.log(data);
+    setFormSendMessage({message: 'Sending...', state: 'idle'});
+
+    await fetch('https://n8n-production-0d8d.up.railway.app/webhook/872c92cf-4805-45cd-99fd-f5dc28881a8a', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }).then(res => res.json()).then(data => {
+      setFormSendMessage({message: 'Message Sent!', state: 'success'});
+    }).catch(err => {
+      setFormSendMessage({message: 'Message Sent!', state: 'success'});
+    });
+
       setFormState('sent');
-      setTimeout(() => setFormState('idle'), 3000);
-    }, 2000);
+  } catch (error) {
+    setFormSendMessage({message: 'Message Sent!', state: 'error'});
+    setFormState('idle');
+  }
   };
 
   return (
@@ -66,8 +91,8 @@ export function ContactSection() {
                   icon: Mail,
                   title: "Email Me",
                   description: "Direct communication for project discussions",
-                  value: "hello@jasmeetsingh.dev",
-                  action: "mailto:hello@jasmeetsingh.dev",
+                  value: "jasmeetsingh0502@gmail.com",
+                  action: "mailto:jasmeetsingh0502@gmail.com",
                   actionText: "Send Email",
                 },
                 {
@@ -75,7 +100,7 @@ export function ContactSection() {
                   title: "Schedule a Call",
                   description: "Book a consultation to discuss your needs",
                   value: "30 min meeting",
-                  action: "#schedule",
+                  action: "https://calendly.com/jas0502singh/30min",
                   actionText: "Book Time",
                 },
                 {
@@ -94,7 +119,7 @@ export function ContactSection() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
                 >
-                  <Card className="glass-strong hover:border-primary/40 transition-all duration-300 group cursor-pointer border border-primary/20">
+                  <Card className="glass-strong  hover:border-primary/40 transition-all duration-300 group cursor-pointer border border-primary/20">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
                         <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
@@ -107,9 +132,11 @@ export function ContactSection() {
                           <Button
                             size="sm"
                             variant="outline"
-                            className="glass hover:border-primary/40 hover:bg-primary/5 transition-all"
+                            className="glass hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all"
                             onClick={() => {
                               if (contact.action.startsWith('mailto:')) {
+                                window.location.href = contact.action;
+                              } if (contact.action.startsWith('https://')) {
                                 window.location.href = contact.action;
                               } else {
                                 const element = document.querySelector(contact.action);

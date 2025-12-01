@@ -13,10 +13,14 @@ export function ProjectPlaceholder({ title, className = '' }: ProjectPlaceholder
     >
       <div className="text-center p-8">
         <div className="text-4xl font-bold text-foreground mb-2">{title}</div>
-        <div className="text-sm text-muted-foreground">Project Screenshot</div>
+        {/* <div className="text-sm text-muted-foreground">Project Screenshot</div> */}
       </div>
     </div>
   );
 }
+
+
+
+
 
 

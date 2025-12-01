@@ -51,8 +51,8 @@ export function InteractiveShootingStars() {
       setStars((prevStars) =>
         prevStars.map((star) => {
           if (star.exploding) {
-            // Handle explosion animation
-            const newExplosionProgress = star.explosionProgress + deltaTime / 500;
+            // Handle explosion animation - Same duration as mouse click (800ms)
+            const newExplosionProgress = star.explosionProgress + deltaTime / 800;
             if (newExplosionProgress >= 1) {
               // Reset star after explosion
               return {
@@ -117,24 +117,25 @@ export function InteractiveShootingStars() {
     <div className="shooting-stars-interactive">
       {stars.map((star) => {
         if (star.exploding) {
-          // Explosion particles
-          const particles = 8;
+          // Explosion particles - Same as mouse click animation
+          const particles = 12;
           const explosionElements = [];
           for (let i = 0; i < particles; i++) {
             const angle = (i / particles) * Math.PI * 2;
-            const distance = star.explosionProgress * 30;
+            const distance = star.explosionProgress * 80; // Same 80px radius as mouse click
             const x = Math.cos(angle) * distance;
             const y = Math.sin(angle) * distance;
-            const opacity = 1 - star.explosionProgress;
+            const scale = 1 - star.explosionProgress * 0.5; // Scale down like mouse explosion
+            const opacity = 1 - star.explosionProgress; // Fade out
 
             explosionElements.push(
               <div
                 key={`${star.id}-particle-${i}`}
-                className="star-explosion-particle"
+                className="mouse-explosion-particle" // Use same CSS class as mouse explosions
                 style={{
                   left: `${star.x}%`,
                   top: `${star.y}%`,
-                  transform: `translate(${x - star.progress * 400}px, ${y + star.progress * 400}px)`,
+                  transform: `translate(${x - star.progress * 400}px, ${y + star.progress * 400}px) scale(${scale})`,
                   opacity: opacity,
                 }}
               />

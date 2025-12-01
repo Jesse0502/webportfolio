@@ -68,15 +68,13 @@ const stats = [
 const techStack = [
   // AI & ML
   { name: "LangChain", category: "AI", icon: "🔗", description: "LLM Framework" },
-  { name: "OpenAI GPT-4", category: "AI", icon: "🤖", description: "Large Language Models" },
   { name: "RAG Systems", category: "AI", icon: "📚", description: "Knowledge Retrieval" },
   { name: "Vector DBs", category: "AI", icon: "🗄️", description: "Embeddings Storage" },
   { name: "Hugging Face", category: "AI", icon: "🤗", description: "Model Hub" },
 
   // Automation
   { name: "N8N", category: "Automation", icon: "⚡", description: "Workflow Engine" },
-  { name: "Zapier", category: "Automation", icon: "⚙️", description: "Integration Platform" },
-  { name: "Make.com", category: "Automation", icon: "🔄", description: "Visual Automation" },
+
 
   // Frontend
   { name: "React", category: "Frontend", icon: "⚛️", description: "UI Framework" },
@@ -91,7 +89,7 @@ const techStack = [
 
   // Database & Cloud
   { name: "PostgreSQL", category: "Database", icon: "🐘", description: "Relational Database" },
-  { name: "Pinecone", category: "Database", icon: "🌲", description: "Vector Database" },
+  { name: "Qdrant", category: "Database", icon: "🌲", description: "Vector Database" },
   { name: "Redis", category: "Database", icon: "🔴", description: "In-Memory Store" },
   { name: "AWS", category: "Cloud", icon: "☁️", description: "Cloud Infrastructure" },
   { name: "Docker", category: "Cloud", icon: "🐳", description: "Containerization" },
@@ -142,28 +140,7 @@ export function AboutSection() {
         </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-            >
-              <Card className="glass-strong hover:border-primary/40 transition-all duration-300 text-center group border border-primary/20">
-                <CardContent className="p-4 md:p-6">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-primary/20 transition-colors">
-                    <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-                  </div>
-                  <div className="text-2xl md:text-3xl font-bold gradient-text mb-1 md:mb-2">{stat.value}</div>
-                  <div className="text-sm font-semibold mb-1">{stat.label}</div>
-                  <div className="text-xs text-muted-foreground">{stat.description}</div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+        
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-16">

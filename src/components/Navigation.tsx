@@ -17,10 +17,24 @@ export function Navigation() {
   const [activeSection, setActiveSection] = React.useState("home");
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+  const [isHidden, setIsHidden] = React.useState(false);
+  const [lastScrollY, setLastScrollY] = React.useState(0);
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // Determine scroll direction and hide/show navbar
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past 100px - hide navbar
+        setIsHidden(true);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show navbar
+        setIsHidden(false);
+      }
+
+      setIsScrolled(currentScrollY > 20);
+      setLastScrollY(currentScrollY);
 
       // Determine active section
       const sections = navLinks.map((link) => link.href.substring(1));
@@ -38,14 +52,15 @@ export function Navigation() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const handleLinkClick = (href: string) => {
     setIsMobileMenuOpen(false);
+    setIsHidden(false); // Show navbar when navigating
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -56,6 +71,7 @@ export function Navigation() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isHidden ? "-translate-y-full" : "translate-y-0",
         isScrolled
           ? "glass shadow-lg"
           : "bg-transparent"

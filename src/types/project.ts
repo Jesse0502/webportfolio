@@ -240,7 +240,7 @@ export const projects: Project[] = [
     "FastAPI",
     "Semantic Search",
   ],
-  "demoUrl": "https://web-production-81341.up.railway.app/",
+  "demoUrl": "",
   "githubUrl": "https://github.com/Jesse0502/AI-Quiz-App.git",
   "usePlaceholder": true,
   "categories": [

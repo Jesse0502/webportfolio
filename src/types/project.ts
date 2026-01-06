@@ -110,7 +110,7 @@ export const projects: Project[] = [
     "Semantic Search Implementation",
     "Real-time Data Synchronization",
   ],
-  "demoUrl": "https://yield-ai.up.railway.app/",
+  "demoUrl": "",
   "githubUrl": "https://github.com/Jesse0502/yield",
   "usePlaceholder": false,
   "thumbnail": "/projects/yield-ai-memory-assistant/thumbnail.png",

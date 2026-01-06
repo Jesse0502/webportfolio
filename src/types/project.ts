@@ -25,6 +25,46 @@ export type ProjectCategory = typeof projectCategories[number];
 
 export const projects: Project[] = [
   {
+  "id": "ai-rea",
+  "title": "AI Real Estate Assistant",
+  "summary": "An N8N workflow that automates the process of a Real Estate Agent by handling tasks such as appraisals, booking services, handling payments, and more.",
+  "description": "A close to production-ready N8N workflow that automates the process of a Real Estate Agent by handling tasks such as appraisals, booking services, handling payments, and more.",
+  "problemStatement": "Real Estate Agents spend hours manually handling tasks such as appraisals, booking services, handling payments, and more. This is a time-consuming and repetitive process that can be automated.",
+  "solution": "I built an N8N workflow that automates the process of a Real Estate Agent by handling tasks such as appraisals, booking services, handling payments, and more.",
+  "results": "Successfully built a close to production-ready N8N workflow that automates the process of a Real Estate Agent by handling tasks such as appraisals, booking services, handling payments, and more.",
+  "videoUrl": "",
+  "techStack": [
+    "N8N",
+    "Grok 3.5",
+    "Stripe",
+    "Documentero",
+    "Gmail",
+    "Supabase",
+  ],
+  "skills": [
+    "N8N Automation",
+    "AI Integration & Orchestration",
+    "RAG (Retrieval Augmented Generation)",
+    "Document Generation",
+    "Payment Processing",
+    "Email Automation",
+    "API Integration",
+    "Workflow Automation",
+  ],
+  "demoUrl": "",
+  "githubUrl": "",
+  "usePlaceholder": false,
+  "thumbnail": "/n8n2.png",
+  "images": [
+    "/projects/ai-rea/1.png",
+  ],
+  "categories": [
+    "RAG",
+    "Vector Database",
+    "N8N"
+  ]
+},
+  {
   "id": "yield-ai-memory-assistant",
   "title": "yield · AI Memory Assistant",
   "summary": "Full-stack second brain that unifies streaming AI chat, persistent memory management, file-based RAG, and smart reminders. Built with FastAPI, Next.js, xAI Grok-3, and Supabase vector store.",

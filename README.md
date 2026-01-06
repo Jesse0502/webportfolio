@@ -207,7 +207,7 @@ Feel free to use this template for your own portfolio! If you find any issues or
 ## 📧 Contact
 
 **Jasmeet Singh**
-- Email: hello@jasmeetsingh.dev
+- Email: jasmeetsingh0502@gmail.com
 - LinkedIn: [linkedin.com/in/jasmeetsingh](https://linkedin.com/in/jasmeetsingh)
 - GitHub: [github.com/jasmeetsingh](https://github.com/jasmeetsingh)
 - Twitter: [@jasmeetsingh](https://twitter.com/jasmeetsingh)

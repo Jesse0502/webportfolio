@@ -387,45 +387,6 @@
   animation: tech-glow 4s ease-in-out infinite;
 }
 
-/* Mouse Follower - Made Bigger */
-.mouse-follower-outer {
-  position: fixed;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(59, 130, 246, 0) 70%);
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: screen;
-}
-
-.mouse-follower-inner {
-  position: fixed;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: rgba(59, 130, 246, 0.9);
-  box-shadow: 0 0 16px rgba(59, 130, 246, 0.7), 0 0 32px rgba(59, 130, 246, 0.4);
-  pointer-events: none;
-  z-index: 10000;
-}
-
-/* Mouse Click Explosion */
-.mouse-explosion-container {
-  position: fixed;
-  pointer-events: none;
-  z-index: 10001;
-}
-
-.mouse-explosion-particle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.9) 0%, rgba(59, 130, 246, 0.6) 50%, rgba(59, 130, 246, 0) 100%);
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.8);
-}
-
   /* Enhanced form styling for light theme */
   .form-input {
     width: 100%;

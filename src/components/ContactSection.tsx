@@ -100,7 +100,7 @@ export function ContactSection() {
                   title: "Schedule a Call",
                   description: "Book a consultation to discuss your needs",
                   value: "30 min meeting",
-                  action: "https://calendly.com/jas0502singh/30min",
+                  action: "https://calendly.com/jasmeetsingh0502/30min",
                   actionText: "Book Time",
                 },
                 {
@@ -139,7 +139,7 @@ export function ContactSection() {
                               } if (contact.action.startsWith('https://')) {
                                 window.location.href = contact.action;
                               } else {
-                                const element = document.querySelector(contact.action);
+                                const element = document?.querySelector(contact.action);
                                 if (element) {
                                   element.scrollIntoView({ behavior: 'smooth' });
                                 }
@@ -291,7 +291,7 @@ export function ContactSection() {
                 <Button
                   size="lg"
                   className="group"
-                  onClick={() => window.location.href = 'mailto:hello@jasmeetsingh.dev'}
+                  onClick={() => window.location.href = 'mailto:jasmeetsingh0502@gmail.com'}
                 >
                   Start Your Project
                   <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
